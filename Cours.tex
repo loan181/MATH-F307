@@ -220,7 +220,6 @@
 					\draw (2,1.2)[color=red,<-] .. controls (1.5,1.4)  .. (1.05,1.2);
 					\draw (2,1) .. controls (1.5,0.8) .. (1,1);
 					\draw (2,0.8)[color=red,->] .. controls (1.5,0.6)  .. (1,0.8);
-
             			\end{tikzpicture} \\
             			\textit{Cycle non-simple}
             			\end{minipage}\hfill
@@ -237,5 +236,123 @@
             			\end{tikzpicture} \\
             			\textit{Cycle simple}
             			\end{minipage}
+	\subsection{Arbres}
+		Un \textbf{arbre} est un graphe simple, connexe qui ne contient aucun cycle. Ses sommets de degrés 1 sont appelés \textbf{feuilles}.
+			
+		\begin{center}
+		\begin{tikzpicture}
+			\draw(2,0)[color=red] node{\textbullet};	
+			\draw(2,1) node{\textbullet};
+			\draw(3,2)[color=red] node{\textbullet};
+			\draw(1,2) node{\textbullet};
+			\draw(1,3)[color=red] node{\textbullet};
+			\draw(0.5,3)[color=red] node{\textbullet};
+			\draw(1.5,3)[color=red] node{\textbullet};
+			\draw(2,0) -- (2,1) -- (1,2) -- (0.5,3);
+			\draw(1,2) -- (1,3);
+			\draw(1,2) -- (1.5,3);
+			\draw(2,1) -- (3,2);
+		\end{tikzpicture} \\
+		\textit{Exemple d'arbre (feuilles en rouge)}
+		\end{center}
+
+		Si $T$ est un arbre avec $p \geq 2$ sommets, alors $T$ contient au moins 2 feuilles.\\
+			
+		\underline{Théorème :} Soit $T$ un graphe simple à $p$ sommets, alors : \\ 
+		$T$ est un arbre $\Leftrightarrow T$ à $(p-1)$ arêtes et aucun cycle $\Leftrightarrow T$ à $(p-1)$ arêtes et est connexe.
+	
+	\subsection{Isomorphisme}
+		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : v_1 \rightarrow v_2$ et une bijection $g : E_1 \rightarrow E_2$ tel que $\forall e \in E_1$ est incident à $v, w \in V_1$ si et seulement si $g(e)$ est incidente à $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$. \\ % Sans doute des erreurs dans cette phrase 
+		Autrement dit, les graphes ont le même nombre de sommets et sont connectés de la même façon. Autrement dit, si les deux graphes venaient à être dessinés, alors il n'y aurait qu'à déplacer les sommets de l'un pour obtenir la copie conforme de l'autre.\\
+		\begin{center}
+		\begin{minipage}{0.5\textwidth}
+			\begin{tikzpicture}
+				\draw(0,0) node[anchor=north east]{$c$} node{\textbullet};
+				\draw(2,0) node[anchor=north west]{$b$} node{\textbullet};
+				\draw(1,2) node[anchor=south]{$a$} node{\textbullet};
+				\draw(1,1) node[anchor=south]{$d$} node{\textbullet};
+				\draw(0,0) -- (2,0) -- (1,1) -- (0,0) -- (1,2) -- (2,0);
+				\draw(3,1) node{$\cong$};
+				\draw(4,0) node[anchor=north east]{$c'$} node{\textbullet};
+				\draw(4,2) node[anchor=south east]{$a'$} node{\textbullet};
+				\draw(6,0) node[anchor=north west]{$b'$} node{\textbullet};
+				\draw(6,2) node[anchor=south west]{$d'$} node{\textbullet};
+				\draw(6,0) -- (4,0) -- (4,2) -- (6,0) -- (6,2) -- (4,0);
+			\end{tikzpicture} \\
+			\end{minipage}\hfill
+			\begin{minipage}{0.5\textwidth}
+			\center
+			$f(a) = a'$ \\
+			$f(b) = b'$ \\
+			$f(c) = c'$ \\
+			$f(d) = d'$ 
+			\end{minipage}\\
+			\textit{Exemple de graphe isomorphe}
+		\end{center}
+		
+		Pour prouver que 2 graphes sont isomorphe on montre la bijection de chaque sommet (il doit avoir le même degré dans le graphe isomorphe et être adjacents aux même sommet).\\ % uniquement ces conditions ?
+		Inversement pour prouver que 2 graphes ne sont pas isomorphe, il nous suffit de trouver un sommet qui n'est pas une bijection.
+	
+	\subsection{Graphe Hamiltonien}
+		Un \textbf{graphe hamiltonien} est un graphe possédant au moins un cycle passant par tout les sommets une et une seule fois. Chacun de ses cycles sont appelés \textbf{cycle hamiltonien}.
+		\begin{center}
+			\includegraphics[scale=0.6]{hamiltonien.png}
+			\qquad
+			\includegraphics[scale=0.57]{hamiltonien2.png}\\
+			\textit{Exemple de graphe hamiltonien et d'un cycle hamiltonien}
+		\end{center}
+		
+		Un graphe $\Gamma = (V,E)$ est \textbf{biparti} si on peut écrire $V = B \cup W$ avec $B \cap W = \emptyset$ et toute les arêtes de $\Gamma$ joint un sommet de $B$ à un sommet de $W$. Avec $B$ et $W$ des sous-ensembles de sommets. % Vérifier se qu'est B et W
+		\begin{center}
+			\begin{tikzpicture}
+				\draw (0,0)[color=red] ellipse (0.5 and 2);
+				\draw (0,2)[color=red] node[anchor=south]{$B$};
+				\draw (0,0) node{\textbullet};
+				\draw (0,-0.75) node{\textbullet};
+				\draw (0,0.75) node{\textbullet};
+				\draw (0,-1.5) node{\textbullet};
+				\draw (0,1.5) node{\textbullet};
+				\draw (2,0)[color=blue] ellipse (0.5 and 1.25);
+				\draw (2,1.5)[color=blue] node[anchor=south]{$W$};
+				\draw (2,0) node{\textbullet};
+				\draw (2,0.75) node{\textbullet};
+				\draw (2,-0.75) node{\textbullet};
+				\draw(0,0) -- (2,0.75);
+				\draw(0,0) -- (2,-0.75);
+				\draw(0,-0.75) -- (2,0.75);
+				\draw(0,-1.5) -- (2,-0.75);
+				\draw(0,-1.5) -- (2,0);
+				\draw(0,0.75) -- (2,0.75);
+				\draw(0,0.75) -- (2,-0.75);
+				\draw(0,0.75) -- (2,0);
+				\draw(0,1.5) -- (2,0.75);				
+			\end{tikzpicture} \\
+		\textit{Exemple de graphe biparti}
+		\end{center}
+			
+		Si un graphe est biparti, alors tout ses cycles simples sont de longueur paire.\\
+			
+		Un graphe triparti avec un nombre impair de sommets n'est pas hamiltonien. \\
+		\begin{center}
+			\begin{tikzpicture}
+				\draw (0,0) node[anchor=south east, color=red]{$B$}node{\textbullet};
+				\draw (1.5,0) node[anchor=south east, color=blue]{$W$}node{\textbullet};
+				\draw (3,0) node[anchor=south east, color=red]{$B$}node{\textbullet};
+				\draw (0,1.5) node[anchor=south east, color=blue]{$W$}node{\textbullet};
+				\draw (1.5,1.5) node[anchor=south east, color=red]{$B$}node{\textbullet};
+				\draw (3,1.5) node[anchor=south east, color=blue]{$W$}node{\textbullet};
+				\draw (0,3) node[anchor=south east, color=red]{$B$}node{\textbullet};
+				\draw (1.5,3) node[anchor=south east, color=blue]{$W$}node{\textbullet};
+				\draw (3,3) node[anchor=south east, color=red]{$B$}node{\textbullet};	
+				\draw (0,0) -- (3,0) -- (3,3) -- (0,3) -- (0,0);	
+				\draw (1.5,0) -- (1.5,3);
+				\draw (0,1.5) -- (3,1.5);	
+			\end{tikzpicture} \\
+		\textit{Exemple de graphe triparti non-hamiltonien}
+		\end{center}
+		
+		Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
+
+			
 
 \end{document}
