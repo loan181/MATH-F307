@@ -237,29 +237,34 @@
             			\textit{Cycle simple}
             			\end{minipage}
 	\subsection{Arbres}
-		Un \textbf{arbre} est un graphe simple, connexe qui ne contient aucun cycle. Ses sommets de degrés 1 sont appelés \textbf{feuilles}.
+		\subsubsection{Définition}
+        			Un \textbf{arbre} est un graphe simple, connexe qui ne contient aucun cycle. Ses sommets de degrés 1 sont appelés \textbf{feuilles}.
+        			
+        			\begin{center}
+        			\begin{tikzpicture}
+        				\draw(2,0)[color=red] node{\textbullet};	
+        				\draw(2,1) node{\textbullet};
+        				\draw(3,2)[color=red] node{\textbullet};
+        				\draw(1,2) node{\textbullet};
+        				\draw(1,3)[color=red] node{\textbullet};
+        				\draw(0.5,3)[color=red] node{\textbullet};
+        				\draw(1.5,3)[color=red] node{\textbullet};
+        				\draw(2,0) -- (2,1) -- (1,2) -- (0.5,3);
+        				\draw(1,2) -- (1,3);
+        				\draw(1,2) -- (1.5,3);
+        				\draw(2,1) -- (3,2);
+        			\end{tikzpicture} \\
+        			\textit{Exemple d'arbre (feuilles en rouge)}
+        			\end{center}
+        	
+        			Si $T$ est un arbre avec $p \geq 2$ sommets, alors $T$ contient au moins 2 feuilles.\\
+        				
+        			\underline{Théorème :} Soit $T$ un graphe simple à $p$ sommets, alors : \\ 
+        			$T$ est un arbre $\Leftrightarrow T$ à $(p-1)$ arêtes et aucun cycle $\Leftrightarrow T$ à $(p-1)$ arêtes et est connexe.
+		\subsubsection{Arbre couvrant}
+			Un \textbf{arbre couvrant} dans un graphe $\Gamma$ est un arbre qui est un sous-arbre de $\Gamma$ et qui contient tout les sommets de $\Gamma$.
 			
-		\begin{center}
-		\begin{tikzpicture}
-			\draw(2,0)[color=red] node{\textbullet};	
-			\draw(2,1) node{\textbullet};
-			\draw(3,2)[color=red] node{\textbullet};
-			\draw(1,2) node{\textbullet};
-			\draw(1,3)[color=red] node{\textbullet};
-			\draw(0.5,3)[color=red] node{\textbullet};
-			\draw(1.5,3)[color=red] node{\textbullet};
-			\draw(2,0) -- (2,1) -- (1,2) -- (0.5,3);
-			\draw(1,2) -- (1,3);
-			\draw(1,2) -- (1.5,3);
-			\draw(2,1) -- (3,2);
-		\end{tikzpicture} \\
-		\textit{Exemple d'arbre (feuilles en rouge)}
-		\end{center}
-
-		Si $T$ est un arbre avec $p \geq 2$ sommets, alors $T$ contient au moins 2 feuilles.\\
-			
-		\underline{Théorème :} Soit $T$ un graphe simple à $p$ sommets, alors : \\ 
-		$T$ est un arbre $\Leftrightarrow T$ à $(p-1)$ arêtes et aucun cycle $\Leftrightarrow T$ à $(p-1)$ arêtes et est connexe.
+			Il est utile entre-autre pour résoudre le problème du voyageur de commerce.
 	
 	\subsection{Isomorphisme}
 		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : v_1 \rightarrow v_2$ et une bijection $g : E_1 \rightarrow E_2$ tel que $\forall e \in E_1$ est incident à $v, w \in V_1$ si et seulement si $g(e)$ est incidente à $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$. \\ % Sans doute des erreurs dans cette phrase 
@@ -351,7 +356,63 @@
 		\textit{Exemple de graphe triparti non-hamiltonien}
 		\end{center}
 		
-		Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
+		\underline{Théorème :} Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
+	
+	\subsection{Illustration - Le code de Gray}
+		Un code de Gray d'ordre $n$ est un arrangement cyclique de $2^n$ mots binaires de longueur $n$ tels que 2 mots ne différent qu'en une seule position.
+		Par exemple pour $n=3$: \\ 
+		\begin{minipage}{0.5\textwidth}
+            			\centering
+            			\begin{tikzpicture}
+            				\draw(0,1) node[anchor=east]{011} node{\textbullet};	
+            				\draw(1,0) node[anchor=north]{101} node{\textbullet};
+					\draw(2,1) node[anchor=west]{110} node{\textbullet};
+					\draw(1,2) node[anchor=south]{000} node{\textbullet};
+					\draw(0.3, 1.71) node[anchor=south east]{001} node{\textbullet};
+					\draw(0.3, 0.3) node[anchor=north east]{111} node{\textbullet};
+					\draw(1.71, 0.3) node[anchor=north west]{100} node{\textbullet};
+					\draw(1.71, 1.71) node[anchor=south west]{010} node{\textbullet};
+					\draw(1,0) -- (1,2) -- (1.71,1.71) -- (0.3, 0.3) -- (1,0) -- (1.71,0.3) -- (0.3,1.71) -- (0,1) -- (2,1) -- (1.71,1.71);
+					\draw(1,2) -- (0.3,1.71);
+					\draw(2,1) -- (1.71,0.3);
+					\draw(0,1) -- (0.3,0.3);
+            			\end{tikzpicture} \\
+            			\end{minipage}\hfill
+            			\begin{minipage}{0.5\textwidth}
+            			\centering
+            			\includegraphics[scale=0.7]{cube_coords.png}
+			 	\\
+            			\textit{Comparable aux sommets d'un cube}
+            			\end{minipage}
+		
+	\subsection{Graphe Eulérien}
+		Un \textbf{cycle eulérien} dans un graphe $\Gamma$ est un cycle qui contient toutes les arêtes de $\Gamma$. Un graphe est \textbf{eulérien} s'il contient un de ses graphes.\\
+		
+		\underline{Proposition :} Si un graphe est eulérien, alors tout ses sommets sont de degrés pairs.\\
+		
+		\underline{Lemme :} Soit $\Gamma$ un graphe dans lequel chaque sommet est de degré pair, alors l'ensemble $E$ se partitionne\footnote{collection de sous-ensemble $C_1, ..., C_n$ de $E$ tels que $E=\displaystyle\bigcup^n_{i=1} C_i$ et $\forall i \neq j, C_i \cap C_j = \emptyset$} en une union de cycles disjoints.\\
+		\begin{center}
+			\begin{tikzpicture}
+				\draw[color=blue](0,1) -- (1,0) -- (5,0) -- (6,1) -- (5,2) -- (1,2) -- (0,1);
+				\draw[color=red](1,0) -- (2,1) -- (1,2) -- (1,0);
+				\draw[color=green](5,0) -- (5,2) -- (4,1) -- (5,0);
+            			\draw(0,1) node{\textbullet};
+				\draw(1,0) node{\textbullet};
+				\draw(2,1) node{\textbullet};
+				\draw(1,2) node{\textbullet};	
+				\draw(4,1) node{\textbullet};
+				\draw(5,0) node{\textbullet};
+				\draw(6,1) node{\textbullet};
+				\draw(5,2) node{\textbullet};
+            			\end{tikzpicture} \\
+				\textit{toutes les arêtes se trouvent dans un seul cycle}
+			\end{center} 
+			
+	\underline{Théorème :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulérien $\Leftrightarrow$ chaque sommet à un degré pair.
+	
+	% Problème du voyageur du commerce volontairement ignoré, car peu pertianente.
+	\subsection{Ordre partiel}
+
 
 			
 
