@@ -410,9 +410,45 @@
 			
 	\underline{Théorème :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulérien $\Leftrightarrow$ chaque sommet à un degré pair.
 	
-	% Problème du voyageur du commerce volontairement ignoré, car peu pertianente.
+	% Problème du voyageur du commerce volontairement ignoré, car peu pertinente.
 	\subsection{Ordre partiel}
+		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$. C'est-à-dire un ensemble de couple $(p_1,p_2) \in P \times P$ noté $p_1 \leq p_2$ tel que:
+		\begin{itemize}
+			\item Réflexivité : $p \leq p$
+			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$
+			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$
+		\end{itemize}
 
+		On note $(P,\leq)$ un ensemble partiellement ordonné.\\ % Explication supplémentaire ?
+		
+		Un ordre partiel $(P,\leq)$ peut se représenter à l'aide d'un graphe. Si l'on place les arêtes entre les différents sommets en respectant les 3 règles d'un ordre partiel alors on obtient un \textbf{diagramme de Hasse}. C'est à dire le graphe simple $\Gamma = (P,E)$ tels que :
+		\begin{itemize}
+			\item $e = \{x,y\} \in E \Leftrightarrow x \leq y$ et $\exists z | x \leq z \cap z \leq y$
+			\item Dans sa représentation : si $x \leq y, x$ sera placé plus bas que $y$
+		\end{itemize}
+		
+		\begin{center}
+		\includegraphics[scale=0.65]{ordre_partiel.png}\\
+		\textit{Diagramme de Hasse de l'ensemble des diviseurs de 60, $A = \{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$, ordonnés par la relation de divisibilité}
+		\end{center}
+		
+		Soit  $(P, \leq)$ un ordre partiel:
+		\begin{itemize}
+			\item Une \textbf{chaine} dans $P$ est un sous-ensemble $C$ de $P$ tels que :\\
+			$\forall c_1,c_2 \in C : c_1 \leq c_2$ ou $c_2 \leq c_1$.\\
+			(Dans l'exemple ci-dessus : $\{1,2,4,20,60\}$ en est une (1 divise 2, qui divisent 4, qui divisent 20, qui divisent  60))
+			\item Une \textbf{antichaîne} dans $P$ est un sous-ensemble $A$ de $P$ tels que :\\
+			$\forall a_1 \neq a_2 \in A : a_1 \not\leq a_2$ et $a_2 \not\leq a_1$. Autrement dit c'est une partie dont les éléments sont 2 à 2 incomparables.
+			(Dans l'exemple ci-dessus : $\{5,3,2\}$ en est une (5 ne divise pas 3 et 3 ne divise pas 2))\\
+		\end{itemize}
+		
+		\underline{Théorème (Dilworth):} Soit $(P,\leq)$ un ensemble fini partiellement ordonné. Alors $\exists$ une antichaine $A$ une partition de $P$ par des chaînes $Q=\{C_1,C_2,...,C_n\}$ tels que $\#Q=\#A$. Autrement dit, le théorème de Dilworth établit, pour un ordre fini, l'existence d'une antichaîne $A$ et d'une partition de l'ensemble ordonné en une famille $Q$ de chaînes, telles que $A$ et $Q$ aient même cardinal.\\
+		
+		\underline{Remarques :}
+		\begin{itemize}
+			\item $Q$ une partition de $P$ et $A$ une antichaîne dans $P$ alors $\#A \leq \#Q$
+			\item $(P,\leq)$ ordre total. Alors une antichaîne non-vide à exactement 1 élément.
+		\end{itemize}
 
 			
 
