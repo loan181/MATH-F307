@@ -383,7 +383,7 @@
             			\includegraphics[scale=0.7]{cube_coords.png}
 			 	\\
             			\textit{Comparable aux sommets d'un cube}
-            			\end{minipage}
+            	\end{minipage}
 		
 	\subsection{Graphe Eulérien}
 		Un \textbf{cycle eulérien} dans un graphe $\Gamma$ est un cycle qui contient toutes les arêtes de $\Gamma$. Un graphe est \textbf{eulérien} s'il contient un de ses graphes.\\
@@ -450,6 +450,57 @@
 			\item $(P,\leq)$ ordre total. Alors une antichaîne non-vide à exactement 1 élément.
 		\end{itemize}
 
+		\underline{Lien avec les graphes triparti :}
+		
+		Soit $\Gamma=(V,E)$ un graphe simple; un \textbf{couplage} $M$ de $\Gamma$ est un sous-ensemble d'arêtes de $E$ qui sont 2 à 2 non-adjacentes. Les sommets incidents aux arêtes de $M$ sont dits couplés. Autrement dit, c'est un ensemble d'arêtes qui n'ont pas de sommets en commun.\\
+		
+		Un \textbf{transversal} de $\Gamma$ est un sous-ensemble $T$ de sommets de $V$ tels que toutes arêtes de $E$ est incidente à au moins 1 sommet de $T$.\\
 			
+		\begin{minipage}{0.5\textwidth}
+            		\centering
+            			\begin{tikzpicture}
+					\draw[color=green](1.5,0)--(0,0)--(1.5,1);
+					\draw[color=green](1.5,2)--(0,2);
+					\draw[color=green](1.5,4)--(0,3);
+					\draw[color=green](1.5,3)--(0,4);
+					\draw(1.5,3)--(0,3);
+					
+            				\draw(0,0)[color=red] node{\textbullet};
+					\draw(0,2) node{\textbullet};	
+					\draw(0,3) node{\textbullet};
+					\draw(0,4) node{\textbullet};
+					\draw(1.5,0) node{\textbullet};
+					\draw(1.5,1) node{\textbullet};
+					\draw(1.5,2)[color=red]  node{\textbullet};
+					\draw(1.5,3)[color=red]  node{\textbullet};
+					\draw(1.5,4)[color=red]  node{\textbullet};
+            			\end{tikzpicture}
+            			\end{minipage}\hfill
+            			\begin{minipage}{0.5\textwidth}
+            			\centering
+			 	\textit{En rouge : transversal à 4 sommets\\
+            			En vert : couplage à 4 arêtes}
+            	\end{minipage}\\
 
+		\underline{Théorème (König):} Soit $\Gamma = (V= B\ \amalg\ W\footnote{$B \cup W = V$ et $B \cap W = \emptyset$}, E)$ un graphe triparti. Alors la cardinalité maximale d'un couplage de $\Gamma$ est égale à la cardinalité minimale d'un transversal de $\Gamma$.\\
+		
+		Soit $\Gamma=(B \amalg W,E)$ un graphe triparti et $M$ un couplage. Un \textbf{chemin alterné} est un chemin qui démarre en un sommet de $B$ non-couplé et alterne ne arête dans $E_{/ M}$ puis une arête dans $M$ et ainsi de suite.
+		 \begin{center}
+            		\begin{tikzpicture}
+            			\draw(0,0) node[anchor=east]{$b_5$} node{\textbullet};
+				\draw(0,1) node[anchor=east]{$b_4$}  node{\textbullet};	
+				\draw(0,2) node[anchor=east]{$b_3$}  node{\textbullet};	
+				\draw(0,3) node[anchor=east]{$b_2$}  node{\textbullet};
+				\draw(0,4) node[anchor=east]{$b_1$}  node{\textbullet};
+				\draw(2,0) node[anchor=west]{$w_4$} node{\textbullet};
+				\draw(2,1) node[anchor=west]{$w_3$} node{\textbullet};
+				\draw(2,2) node[anchor=west]{$w_2$} node{\textbullet};
+				\draw(2,3) node[anchor=west]{$w_1$} node{\textbullet};
+				\draw(0,0) -- (2,0) -- (0,1) -- (2,1) -- (0,2) -- (2,2) -- (0,3) -- (2,3) -- (0,4);
+            		\end{tikzpicture}\\
+			\textit{Exemple de chemin alterné}
+            	\end{center}
+
+		
+		
 \end{document}
