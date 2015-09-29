@@ -1,6 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage[french]{babel}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{graphicx}  % \includegraphics[scale=0.6]{image.png}\\
@@ -9,17 +9,17 @@
 
 \begin{document}
 
-\section{Théorie des graphes:}
-	\subsection{Définitions} 
+\section{ThÃ©orie des graphes:}
+	\subsection{DÃ©finitions} 
 		\subsubsection{Introduction}
 	
-			Un \textbf{graphe} $\Gamma$ est un triplet $(V,E,\gamma)$ où:
+			Un \textbf{graphe} $\Gamma$ est un triplet $(V,E,\gamma)$ oÃ¹:
 			\begin{itemize}
-				\item $V$ est un ensemble fini dont les éléments sont appelés \textbf{sommets}
-				\item $E$ est un ensemble fini dont les éléments sont appelés \textbf{arrêtes}
-				\item $\gamma$ est une fonction qui associe à chaque arrête $e \in E$ une paire de sommets $\{x,y\} \in V$
+				\item $V$ est un ensemble fini dont les Ã©lÃ©ments sont appelÃ©s \textbf{sommets}
+				\item $E$ est un ensemble fini dont les Ã©lÃ©ments sont appelÃ©s \textbf{arrÃªtes}
+				\item $\gamma$ est une fonction qui associe Ã  chaque arrÃªte $e \in E$ une paire de sommets $\{x,y\} \in V$
 			\end{itemize}
-			Qu'on notera plus généralement $P=(V,E)$
+			Qu'on notera plus gÃ©nÃ©ralement $P=(V,E)$
 			
 			\begin{minipage}{0.5\textwidth}
 			\center  
@@ -48,11 +48,11 @@
 			\textit{Exemple de graphe} \\
 			\end{center}
 
-			Soit $\gamma(e)=\{x,y\}$ pour $e \in E, \{x, y\} \in V$. On dit que $x$ et $y$ sont \textbf{adjacents} et que $e$ est \textbf{incidenté} à $x$ et $y$. \\
+			Soit $\gamma(e)=\{x,y\}$ pour $e \in E, \{x, y\} \in V$. On dit que $x$ et $y$ sont \textbf{adjacents} et que $e$ est \textbf{incidentÃ©} Ã  $x$ et $y$. \\
 		
-		\subsubsection{Cas particulier d'arête}
-			On appelle \textbf{arête multiple} toutes les arêtes incidenté à 2 même points.\\
-			Un \textbf{lacet} est une arête qui incidente le même point.
+		\subsubsection{Cas particulier d'arÃªte}
+			On appelle \textbf{arÃªte multiple} toutes les arÃªtes incidentÃ© Ã  2 mÃªme points.\\
+			Un \textbf{lacet} est une arÃªte qui incidente le mÃªme point.
 			\begin{center}
 			\begin{tikzpicture}
 				\draw (0,1) node[anchor=east]{$x$} node{\textbullet};
@@ -66,14 +66,14 @@
 				\draw (5,1.3) node[anchor=south]{$x$} node{\textbullet};
 				\draw[color=red] (5,0.8) ellipse (0.2 and 0.5) node{$e$} ;
 			\end{tikzpicture} \\
-			\textit{Graphe avec arête multiple et graphe avec lacet} \\
+			\textit{Graphe avec arÃªte multiple et graphe avec lacet} \\
 			\end{center}
-		Un graphe est dit \textbf{simple} s'il ne contient pas d'arête multiple ni de lacet
+		Un graphe est dit \textbf{simple} s'il ne contient pas d'arÃªte multiple ni de lacet
 		
-		\subsubsection{Degré d'un sommet}
-			Le \textbf{degré} d'un sommet $v \in V$ est le nombre d'arête incidentes à $v$ (les lacets compte pours 2 arêtes). On le note: $deg(v)$.\\
+		\subsubsection{DegrÃ© d'un sommet}
+			Le \textbf{degrÃ©} d'un sommet $v \in V$ est le nombre d'arÃªte incidentes Ã  $v$ (les lacets compte pours 2 arÃªtes). On le note: $deg(v)$.\\
 			
-			\underline{Théorème:} Soit $\Gamma = (V,E)$, alors $\displaystyle \sum_{v \in V} deg(v) = 2\# E$. Autrement dit la somme des degrés de tout les sommets est égale au nombre d'arête $\times$2. Ce qui implique que la somme des degrés d'un graphe est d'office paire.\\
+			\underline{ThÃ©orÃ¨me:} Soit $\Gamma = (V,E)$, alors $\displaystyle \sum_{v \in V} deg(v) = 2\# E$. Autrement dit la somme des degrÃ©s de tout les sommets est Ã©gale au nombre d'arÃªte $\times$2. Ce qui implique que la somme des degrÃ©s d'un graphe est d'office paire.\\
 			
 			\begin{minipage}{0.5\textwidth}
 			\centering
@@ -93,14 +93,14 @@
 			\end{minipage}\hfill
 			\begin{minipage}{0.5\textwidth}
 			\center
-			7 arêtes\\
-			2 sommets (bleu) de degré 4\\
-			6 sommets (rouge) de degré 1\\
-			$2 \times 4 + 6 \times 1 = 14 = 2 \times $ nombre d'arête totale
+			7 arÃªtes\\
+			2 sommets (bleu) de degrÃ© 4\\
+			6 sommets (rouge) de degrÃ© 1\\
+			$2 \times 4 + 6 \times 1 = 14 = 2 \times $ nombre d'arÃªte totale
 			\end{minipage}
 			
 		\subsubsection{Graphe complet}
-			Le \textbf{graphe complet} $K$ est le graphe simple à $n$ sommets pour lequel chaque paire de sommet à une arête. Autrement dit, les sommets sont tous adjacents entre-eux.
+			Le \textbf{graphe complet} $K$ est le graphe simple Ã  $n$ sommets pour lequel chaque paire de sommet Ã  une arÃªte. Autrement dit, les sommets sont tous adjacents entre-eux.
 			\begin{center}
 			\begin{tikzpicture}
 				\draw(0,2)node{\textbullet};
@@ -141,13 +141,13 @@
 			
 		\subsubsection{Sous-graphes}
 			Un graphe $\Gamma ' = (U,F)$ est un \textbf{sous-graphe} de $\Gamma = (V,E)$ si : \\
-			$U\subseteq$ et $F \subseteq E$. On notera $\Gamma ' \leq \Gamma$
+			$U\subseteq$ et $F \subseteq E$. On notera $\Gamma ' \leq \Gamma$
 	
 	\subsection{Chemins}
 		\subsubsection{Definition}
-			Soit $P=(V,E)$ et $v,w \in V$, un \textbf{chemin} de $v$ à $w$ de longueur $n$ est une séquence alternée de $(n+1)$ sommets $v_0,v_1,...,v_n$ et de $n$ arêtes $e_1,e_2,...,e_n$ de la forme : $(v_0,e_1,v_1,e_2,v_2,...,v_{n-1},e_n,v_n)$.\\
+			Soit $P=(V,E)$ et $v,w \in V$, un \textbf{chemin} de $v$ Ã  $w$ de longueur $n$ est une sÃ©quence alternÃ©e de $(n+1)$ sommets $v_0,v_1,...,v_n$ et de $n$ arÃªtes $e_1,e_2,...,e_n$ de la forme : $(v_0,e_1,v_1,e_2,v_2,...,v_{n-1},e_n,v_n)$.\\
 			
-			Un chemin est \textbf{simple} si aucun sommet ne se répète, sauf peut-être celui de départ ou d'arrivée.\\
+			Un chemin est \textbf{simple} si aucun sommet ne se rÃ©pÃ¨te, sauf peut-Ãªtre celui de dÃ©part ou d'arrivÃ©e.\\
 			
 			\begin{minipage}{0.5\textwidth}
 			\centering
@@ -174,9 +174,9 @@
 		\underline{Remarque:} Dans un graphe simple on notera juste la suite des sommets (car il existe qu'un seul chemin les reliants). Avec l'exemple ci-dessus : $(v_1,v_2,v_4,v_5)$
 
 		\subsubsection{Graphe connexe}
-            		Un graphe $\Gamma=(V,E)$ est \textbf{connexe} si $\forall x,y \in V : \exists$ un chemin de $x$ à $y$.\\
+            		Un graphe $\Gamma=(V,E)$ est \textbf{connexe} si $\forall x,y \in V : \exists$ un chemin de $x$ Ã  $y$.\\
             		
-            		Soit $\Gamma = (V,E)$ un graphe et $x \in V$, la \textbf{composante connexe} de $\Gamma$ contenant $x$ est le sous-graphe $\Gamma '$ de $\Gamma$ dont les sommets et les arêtes sont contenues dans un chemin de $\Gamma '$ démarrant en $x$.\\ % Besoin de reformulation plus claire ET vérifier si c'est gamma ou gamma' à la fin.
+            		Soit $\Gamma = (V,E)$ un graphe et $x \in V$, la \textbf{composante connexe} de $\Gamma$ contenant $x$ est le sous-graphe $\Gamma '$ de $\Gamma$ dont les sommets et les arÃªtes sont contenues dans un chemin de $\Gamma '$ dÃ©marrant en $x$.\\ % Besoin de reformulation plus claire ET vÃ©rifier si c'est gamma ou gamma' Ã  la fin.
             		
             		\begin{minipage}{0.5\textwidth}
             			\centering
@@ -205,7 +205,7 @@
             			\end{minipage}
 			
 		\subsubsection{Cycles}	
-			Soit $\Gamma = (V,E)$ et $v \in V$, un \textbf{cycle} est un chemin allant de $v$ à $v$. Il est \textbf{simple} si on ne passe pas plusieurs fois sur le même sommet (à part $v$).
+			Soit $\Gamma = (V,E)$ et $v \in V$, un \textbf{cycle} est un chemin allant de $v$ Ã  $v$. Il est \textbf{simple} si on ne passe pas plusieurs fois sur le mÃªme sommet (Ã  part $v$).
  			\begin{minipage}{0.5\textwidth}
             			\centering
             			\begin{tikzpicture}
@@ -237,8 +237,8 @@
             			\textit{Cycle simple}
             			\end{minipage}
 	\subsection{Arbres}
-		\subsubsection{Définition}
-        			Un \textbf{arbre} est un graphe simple, connexe qui ne contient aucun cycle. Ses sommets de degrés 1 sont appelés \textbf{feuilles}.
+		\subsubsection{DÃ©finition}
+        			Un \textbf{arbre} est un graphe simple, connexe qui ne contient aucun cycle. Ses sommets de degrÃ©s 1 sont appelÃ©s \textbf{feuilles}.
         			
         			\begin{center}
         			\begin{tikzpicture}
@@ -259,16 +259,16 @@
         	
         			Si $T$ est un arbre avec $p \geq 2$ sommets, alors $T$ contient au moins 2 feuilles.\\
         				
-        			\underline{Théorème :} Soit $T$ un graphe simple à $p$ sommets, alors : \\ 
-        			$T$ est un arbre $\Leftrightarrow T$ à $(p-1)$ arêtes et aucun cycle $\Leftrightarrow T$ à $(p-1)$ arêtes et est connexe.
+        			\underline{ThÃ©orÃ¨me :} Soit $T$ un graphe simple Ã  $p$ sommets, alors : \\ 
+        			$T$ est un arbre $\Leftrightarrow T$ Ã  $(p-1)$ arÃªtes et aucun cycle $\Leftrightarrow T$ Ã  $(p-1)$ arÃªtes et est connexe.
 		\subsubsection{Arbre couvrant}
 			Un \textbf{arbre couvrant} dans un graphe $\Gamma$ est un arbre qui est un sous-arbre de $\Gamma$ et qui contient tout les sommets de $\Gamma$.
 			
-			Il est utile entre-autre pour résoudre le problème du voyageur de commerce.
+			Il est utile entre-autre pour rÃ©soudre le problÃ¨me du voyageur de commerce.
 	
 	\subsection{Isomorphisme}
-		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : v_1 \rightarrow v_2$ et une bijection $g : E_1 \rightarrow E_2$ tel que $\forall e \in E_1$ est incident à $v, w \in V_1$ si et seulement si $g(e)$ est incidente à $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$. \\ % Sans doute des erreurs dans cette phrase 
-		Autrement dit, les graphes ont le même nombre de sommets et sont connectés de la même façon. Autrement dit, si les deux graphes venaient à être dessinés, alors il n'y aurait qu'à déplacer les sommets de l'un pour obtenir la copie conforme de l'autre.\\
+		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : v_1 \rightarrow v_2$ et une bijection $g : E_1 \rightarrow E_2$ tel que $\forall e \in E_1$ est incident Ã  $v, w \in V_1$ si et seulement si $g(e)$ est incidente Ã  $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$. \\ % Sans doute des erreurs dans cette phrase 
+		Autrement dit, les graphes ont le mÃªme nombre de sommets et sont connectÃ©s de la mÃªme faÃ§on. Autrement dit, si les deux graphes venaient Ã  Ãªtre dessinÃ©s, alors il n'y aurait qu'Ã  dÃ©placer les sommets de l'un pour obtenir la copie conforme de l'autre.\\
 		\begin{center}
 		\begin{minipage}{0.5\textwidth}
 			\begin{tikzpicture}
@@ -295,11 +295,11 @@
 			\textit{Exemple de graphe isomorphe}
 		\end{center}
 		
-		Pour prouver que 2 graphes sont isomorphe on montre la bijection de chaque sommet (il doit avoir le même degré dans le graphe isomorphe et être adjacents aux même sommet).\\ % uniquement ces conditions ?
+		Pour prouver que 2 graphes sont isomorphe on montre la bijection de chaque sommet (il doit avoir le mÃªme degrÃ© dans le graphe isomorphe et Ãªtre adjacents aux mÃªme sommet).\\ % uniquement ces conditions ?
 		Inversement pour prouver que 2 graphes ne sont pas isomorphe, il nous suffit de trouver un sommet qui n'est pas une bijection.
 	
 	\subsection{Graphe Hamiltonien}
-		Un \textbf{graphe hamiltonien} est un graphe possédant au moins un cycle passant par tout les sommets une et une seule fois. Chacun de ses cycles sont appelés \textbf{cycle hamiltonien}.
+		Un \textbf{graphe hamiltonien} est un graphe possÃ©dant au moins un cycle passant par tout les sommets une et une seule fois. Chacun de ses cycles sont appelÃ©s \textbf{cycle hamiltonien}.
 		\begin{center}
 			\includegraphics[scale=0.6]{hamiltonien.png}
 			\qquad
@@ -307,7 +307,7 @@
 			\textit{Exemple de graphe hamiltonien et d'un cycle hamiltonien}
 		\end{center}
 		
-		Un graphe $\Gamma = (V,E)$ est \textbf{biparti} si on peut écrire $V = B \cup W$ avec $B \cap W = \emptyset$ et toute les arêtes de $\Gamma$ joint un sommet de $B$ à un sommet de $W$. Avec $B$ et $W$ des sous-ensembles de sommets. % Vérifier se qu'est B et W
+		Un graphe $\Gamma = (V,E)$ est \textbf{biparti} si on peut Ã©crire $V = B \cup W$ avec $B \cap W = \emptyset$ et toute les arÃªtes de $\Gamma$ joint un sommet de $B$ Ã  un sommet de $W$. Avec $B$ et $W$ des sous-ensembles de sommets. % VÃ©rifier se qu'est B et W
 		\begin{center}
 			\begin{tikzpicture}
 				\draw (0,0)[color=red] ellipse (0.5 and 2);
@@ -356,10 +356,10 @@
 		\textit{Exemple de graphe triparti non-hamiltonien}
 		\end{center}
 		
-		\underline{Théorème :} Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
+		\underline{ThÃ©orÃ¨me :} Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
 	
 	\subsection{Illustration - Le code de Gray}
-		Un code de Gray d'ordre $n$ est un arrangement cyclique de $2^n$ mots binaires de longueur $n$ tels que 2 mots ne différent qu'en une seule position.
+		Un code de Gray d'ordre $n$ est un arrangement cyclique de $2^n$ mots binaires de longueur $n$ tels que 2 mots ne diffÃ©rent qu'en une seule position.
 		Par exemple pour $n=3$: \\ 
 		\begin{minipage}{0.5\textwidth}
             			\centering
@@ -385,12 +385,12 @@
             			\textit{Comparable aux sommets d'un cube}
             	\end{minipage}
 		
-	\subsection{Graphe Eulérien}
-		Un \textbf{cycle eulérien} dans un graphe $\Gamma$ est un cycle qui contient toutes les arêtes de $\Gamma$. Un graphe est \textbf{eulérien} s'il contient un de ses graphes.\\
+	\subsection{Graphe EulÃ©rien}
+		Un \textbf{cycle eulÃ©rien} dans un graphe $\Gamma$ est un cycle qui contient toutes les arÃªtes de $\Gamma$. Un graphe est \textbf{eulÃ©rien} s'il contient un de ses graphes.\\
 		
-		\underline{Proposition :} Si un graphe est eulérien, alors tout ses sommets sont de degrés pairs.\\
+		\underline{Proposition :} Si un graphe est eulÃ©rien, alors tout ses sommets sont de degrÃ©s pairs.\\
 		
-		\underline{Lemme :} Soit $\Gamma$ un graphe dans lequel chaque sommet est de degré pair, alors l'ensemble $E$ se partitionne\footnote{collection de sous-ensemble $C_1, ..., C_n$ de $E$ tels que $E=\displaystyle\bigcup^n_{i=1} C_i$ et $\forall i \neq j, C_i \cap C_j = \emptyset$} en une union de cycles disjoints.\\
+		\underline{Lemme :} Soit $\Gamma$ un graphe dans lequel chaque sommet est de degrÃ© pair, alors l'ensemble $E$ se partitionne\footnote{collection de sous-ensemble $C_1, ..., C_n$ de $E$ tels que $E=\displaystyle\bigcup^n_{i=1} C_i$ et $\forall i \neq j, C_i \cap C_j = \emptyset$} en une union de cycles disjoints.\\
 		\begin{center}
 			\begin{tikzpicture}
 				\draw[color=blue](0,1) -- (1,0) -- (5,0) -- (6,1) -- (5,2) -- (1,2) -- (0,1);
@@ -405,31 +405,31 @@
 				\draw(6,1) node{\textbullet};
 				\draw(5,2) node{\textbullet};
             			\end{tikzpicture} \\
-				\textit{toutes les arêtes se trouvent dans un seul cycle}
+				\textit{toutes les arÃªtes se trouvent dans un seul cycle}
 			\end{center} 
 			
-	\underline{Théorème :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulérien $\Leftrightarrow$ chaque sommet à un degré pair.
+	\underline{ThÃ©orÃ¨me :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulÃ©rien $\Leftrightarrow$ chaque sommet Ã  un degrÃ© pair.
 	
-	% Problème du voyageur du commerce volontairement ignoré, car peu pertinente.
+	% ProblÃ¨me du voyageur du commerce volontairement ignorÃ©, car peu pertinente.
 	\subsection{Ordre partiel}
-		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$. C'est-à-dire un ensemble de couple $(p_1,p_2) \in P \times P$ noté $p_1 \leq p_2$ tel que:
+		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$. C'est-Ã -dire un ensemble de couple $(p_1,p_2) \in P \times P$ notÃ© $p_1 \leq p_2$ tel que:
 		\begin{itemize}
-			\item Réflexivité : $p \leq p$
-			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$
-			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$
+			\item RÃ©flexivitÃ© : $p \leq p$
+			\item Anti-symÃ©trie : $p \leq q$ et $q \leq p \Rightarrow p = q$
+			\item TransitivitÃ© : $p \leq q$ et $q \leq r \Rightarrow p \leq r$
 		\end{itemize}
 
-		On note $(P,\leq)$ un ensemble partiellement ordonné.\\ % Explication supplémentaire ?
+		On note $(P,\leq)$ un ensemble partiellement ordonnÃ©.\\ % Explication supplÃ©mentaire ?
 		
-		Un ordre partiel $(P,\leq)$ peut se représenter à l'aide d'un graphe. Si l'on place les arêtes entre les différents sommets en respectant les 3 règles d'un ordre partiel alors on obtient un \textbf{diagramme de Hasse}. C'est à dire le graphe simple $\Gamma = (P,E)$ tels que :
+		Un ordre partiel $(P,\leq)$ peut se reprÃ©senter Ã  l'aide d'un graphe. Si l'on place les arÃªtes entre les diffÃ©rents sommets en respectant les 3 rÃ¨gles d'un ordre partiel alors on obtient un \textbf{diagramme de Hasse}. C'est Ã  dire le graphe simple $\Gamma = (P,E)$ tels que :
 		\begin{itemize}
 			\item $e = \{x,y\} \in E \Leftrightarrow x \leq y$ et $\exists z | x \leq z \cap z \leq y$
-			\item Dans sa représentation : si $x \leq y, x$ sera placé plus bas que $y$
+			\item Dans sa reprÃ©sentation : si $x \leq y, x$ sera placÃ© plus bas que $y$
 		\end{itemize}
 		
 		\begin{center}
 		\includegraphics[scale=0.65]{ordre_partiel.png}\\
-		\textit{Diagramme de Hasse de l'ensemble des diviseurs de 60, $A = \{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$, ordonnés par la relation de divisibilité}
+		\textit{Diagramme de Hasse de l'ensemble des diviseurs de 60, $A = \{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$, ordonnÃ©s par la relation de divisibilitÃ©}
 		\end{center}
 		
 		Soit  $(P, \leq)$ un ordre partiel:
@@ -437,24 +437,24 @@
 			\item Une \textbf{chaine} dans $P$ est un sous-ensemble $C$ de $P$ tels que :\\
 			$\forall c_1,c_2 \in C : c_1 \leq c_2$ ou $c_2 \leq c_1$.\\
 			(Dans l'exemple ci-dessus : $\{1,2,4,20,60\}$ en est une (1 divise 2, qui divisent 4, qui divisent 20, qui divisent  60))
-			\item Une \textbf{antichaîne} dans $P$ est un sous-ensemble $A$ de $P$ tels que :\\
-			$\forall a_1 \neq a_2 \in A : a_1 \not\leq a_2$ et $a_2 \not\leq a_1$. Autrement dit c'est une partie dont les éléments sont 2 à 2 incomparables.
+			\item Une \textbf{antichaÃ®ne} dans $P$ est un sous-ensemble $A$ de $P$ tels que :\\
+			$\forall a_1 \neq a_2 \in A : a_1 \not\leq a_2$ et $a_2 \not\leq a_1$. Autrement dit c'est une partie dont les Ã©lÃ©ments sont 2 Ã  2 incomparables.
 			(Dans l'exemple ci-dessus : $\{5,3,2\}$ en est une (5 ne divise pas 3 et 3 ne divise pas 2))\\
 		\end{itemize}
 		
-		\underline{Théorème (Dilworth):} Soit $(P,\leq)$ un ensemble fini partiellement ordonné. Alors $\exists$ une antichaine $A$ une partition de $P$ par des chaînes $Q=\{C_1,C_2,...,C_n\}$ tels que $\#Q=\#A$. Autrement dit, le théorème de Dilworth établit, pour un ordre fini, l'existence d'une antichaîne $A$ et d'une partition de l'ensemble ordonné en une famille $Q$ de chaînes, telles que $A$ et $Q$ aient même cardinal.\\
+		\underline{ThÃ©orÃ¨me (Dilworth):} Soit $(P,\leq)$ un ensemble fini partiellement ordonnÃ©. Alors $\exists$ une antichaine $A$ une partition de $P$ par des chaÃ®nes $Q=\{C_1,C_2,...,C_n\}$ tels que $\#Q=\#A$. Autrement dit, le thÃ©orÃ¨me de Dilworth Ã©tablit, pour un ordre fini, l'existence d'une antichaÃ®ne $A$ et d'une partition de l'ensemble ordonnÃ© en une famille $Q$ de chaÃ®nes, telles que $A$ et $Q$ aient mÃªme cardinal.\\
 		
 		\underline{Remarques :}
 		\begin{itemize}
-			\item $Q$ une partition de $P$ et $A$ une antichaîne dans $P$ alors $\#A \leq \#Q$
-			\item $(P,\leq)$ ordre total. Alors une antichaîne non-vide à exactement 1 élément.
+			\item $Q$ une partition de $P$ et $A$ une antichaÃ®ne dans $P$ alors $\#A \leq \#Q$
+			\item $(P,\leq)$ ordre total. Alors une antichaÃ®ne non-vide Ã  exactement 1 Ã©lÃ©ment.
 		\end{itemize}
 
 		\underline{Lien avec les graphes triparti :}
 		
-		Soit $\Gamma=(V,E)$ un graphe simple; un \textbf{couplage} $M$ de $\Gamma$ est un sous-ensemble d'arêtes de $E$ qui sont 2 à 2 non-adjacentes. Les sommets incidents aux arêtes de $M$ sont dits couplés. Autrement dit, c'est un ensemble d'arêtes qui n'ont pas de sommets en commun.\\
+		Soit $\Gamma=(V,E)$ un graphe simple; un \textbf{couplage} $M$ de $\Gamma$ est un sous-ensemble d'arÃªtes de $E$ qui sont 2 Ã  2 non-adjacentes. Les sommets incidents aux arÃªtes de $M$ sont dits couplÃ©s. Autrement dit, c'est un ensemble d'arÃªtes qui n'ont pas de sommets en commun.\\
 		
-		Un \textbf{transversal} de $\Gamma$ est un sous-ensemble $T$ de sommets de $V$ tels que toutes arêtes de $E$ est incidente à au moins 1 sommet de $T$.\\
+		Un \textbf{transversal} de $\Gamma$ est un sous-ensemble $T$ de sommets de $V$ tels que toutes arÃªtes de $E$ est incidente Ã  au moins 1 sommet de $T$.\\
 			
 		\begin{minipage}{0.5\textwidth}
             		\centering
@@ -478,13 +478,13 @@
             			\end{minipage}\hfill
             			\begin{minipage}{0.5\textwidth}
             			\centering
-			 	\textit{En rouge : transversal à 4 sommets\\
-            			En vert : couplage à 4 arêtes}
+			 	\textit{En rouge : transversal Ã  4 sommets\\
+            			En vert : couplage Ã  4 arÃªtes}
             	\end{minipage}\\
 
-		\underline{Théorème (König):} Soit $\Gamma = (V= B\ \amalg\ W\footnote{$B \cup W = V$ et $B \cap W = \emptyset$}, E)$ un graphe triparti. Alors la cardinalité maximale d'un couplage de $\Gamma$ est égale à la cardinalité minimale d'un transversal de $\Gamma$.\\
+		\underline{ThÃ©orÃ¨me (KÃ¶nig):} Soit $\Gamma = (V= B\ \amalg\ W\footnote{$B \cup W = V$ et $B \cap W = \emptyset$}, E)$ un graphe triparti. Alors la cardinalitÃ© maximale d'un couplage de $\Gamma$ est Ã©gale Ã  la cardinalitÃ© minimale d'un transversal de $\Gamma$.\\
 		
-		Soit $\Gamma=(B \amalg W,E)$ un graphe triparti et $M$ un couplage. Un \textbf{chemin alterné} est un chemin qui démarre en un sommet de $B$ non-couplé et alterne ne arête dans $E_{/ M}$ puis une arête dans $M$ et ainsi de suite.
+		Soit $\Gamma=(B \amalg W,E)$ un graphe triparti et $M$ un couplage. Un \textbf{chemin alternÃ©} est un chemin qui dÃ©marre en un sommet de $B$ non-couplÃ© et alterne ne arÃªte dans $E_{/ M}$ puis une arÃªte dans $M$ et ainsi de suite.
 		 \begin{center}
             		\begin{tikzpicture}
             			\draw(0,0) node[anchor=east]{$b_5$} node{\textbullet};
@@ -498,7 +498,7 @@
 				\draw(2,3) node[anchor=west]{$w_1$} node{\textbullet};
 				\draw(0,0) -- (2,0) -- (0,1) -- (2,1) -- (0,2) -- (2,2) -- (0,3) -- (2,3) -- (0,4);
             		\end{tikzpicture}\\
-			\textit{Exemple de chemin alterné}
+			\textit{Exemple de chemin alternÃ©}
             	\end{center}
 
 		
