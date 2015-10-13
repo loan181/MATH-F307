@@ -64,7 +64,7 @@
 		
 		\subsubsection{Cas particuliers d'arêtes}
 			On appelle \textbf{arêtes multiples} toutes les arêtes incidentes à 2 mêmes points.\\
-			Un \textbf{lacet} est une arête qui incidente à un seul point.
+			Un \textbf{lacet} est une arête incidente à un seul point.
 			\begin{center}
 			\begin{tikzpicture}
 				\draw (0,1) node[anchor=east]{$x$} node{\textbullet};
@@ -78,7 +78,7 @@
 				\draw (5,1.3) node[anchor=south]{$x$} node{\textbullet};
 				\draw[color=red] (5,0.8) ellipse (0.2 and 0.5) node{$e$} ;
 			\end{tikzpicture} \\
-			\textit{Graphe avec arête multiple et graphe avec lacet} \\
+			\textit{Graphe avec arête multiple et graphe avec lacet.} \\
 			\end{center}
 		Un graphe est dit \textbf{simple} s'il ne contient pas d'arête multiple ni de lacet.
 		
@@ -157,7 +157,7 @@
 	
 	\subsection{Chemins}
 		\subsubsection{Definition}
-			Soit $\Gamma=(V,E)$ et $v,b \in V$, un \textbf{chemin} de $v$ à $b$ de longueur $n$ est une séquence alternée de $(n+1)$ sommets $v_0,v_1,...,v_n$ et de $n$ arêtes $e_1,e_2,...,e_n$ de la forme : $(v_0,e_1,v_1,e_2,v_2,...,v_{n-1},e_n,v_n)$.\\
+			Soit $\Gamma=(V,E)$ et $v,w \in V$, un \textbf{chemin} de $v$ à $w$ de longueur $n$ est une séquence alternée de $(n+1)$ sommets $v_0,v_1,...,v_n$ et de $n$ arêtes $e_1,e_2,...,e_n$ de la forme : $(v_0,e_1,v_1,e_2,v_2,...,v_{n-1},e_n,v_n)$.\\
 			
 			Un chemin est \textbf{simple} si aucun sommet ne se répète, sauf peut-être celui de départ ou d'arrivée.\\
 			
@@ -186,35 +186,35 @@
 		\underline{Remarque:} Dans un graphe simple on notera juste la suite des sommets (car il existe qu'un seul chemin les reliants). Avec l'exemple ci-dessus : $(v_1,v_2,v_4,v_5)$
 
 		\subsubsection{Graphe connexe}
-					Un graphe $\Gamma=(V,E)$ est \textbf{connexe} si $\forall x,y \in V : \exists$ un chemin de $x$ à $y$.\\
-					
-					Soit $\Gamma = (V,E)$ un graphe et $x \in V$, la \textbf{composante connexe} de $\Gamma$ contenant $x$ est le sous-graphe $\Gamma'$ de $\Gamma$ dont les sommets et les arêtes sont contenues dans un chemin de $\Gamma$ démarrant en $x$.\\ % Besoin de reformulation plus claire ET vérifier si c'est gamma ou gamma' à la fin.
-					
-					\begin{minipage}{0.5\textwidth}
-						\centering
-						\begin{tikzpicture}
-							\draw(0,0) node{\textbullet};
-							\draw(1,0) node{\textbullet};	
-							\draw(3,2) node{\textbullet};	
-							\draw(1,2) node{\textbullet};
-							\draw(2,1) node{\textbullet};
-							\draw(0,0) -- (1,0) -- (1,2) -- (2,1) -- (3,2) -- (1,2);
-						\end{tikzpicture} \\
-						\textit{Graphe connexe.}
-						\end{minipage}\hfill
-						\begin{minipage}{0.5\textwidth}
-						\centering
-						\begin{tikzpicture}
-							\draw(0,0) node{\textbullet};
-							\draw(1,0) node{\textbullet};	
-							\draw(3,2) node{\textbullet};	
-							\draw(1,2) node{\textbullet};
-							\draw(2,1) node{\textbullet};
-							\draw(0,0) -- (1,0);
-							\draw(2,1) -- (3,2) -- (1,2);
-						\end{tikzpicture} \\
-						\textit{Graphe non-connexe avec 2 composantes connexes.}
-						\end{minipage}
+            		Un graphe $\Gamma=(V,E)$ est \textbf{connexe} si $\forall x,y \in V : \exists$ un chemin de $x$ à $y$.\\
+            		
+            		Soit $\Gamma = (V,E)$ un graphe et $x \in V$, la \textbf{composante connexe} de $\Gamma$ contenant $x$ est le sous-graphe $\Gamma'$ de $\Gamma$ dont les sommets et les arêtes sont contenues dans un chemin de $\Gamma$ démarrant en $x$.\\ % Besoin de reformulation plus claire --> phrase en tout cas correcte      ET vérifier si c'est gamma ou gamma' à la fin. --> fix'd
+            		
+            		\begin{minipage}{0.5\textwidth}
+            			\centering
+            			\begin{tikzpicture}
+            				\draw(0,0) node{\textbullet};
+            				\draw(1,0) node{\textbullet};	
+            				\draw(3,2) node{\textbullet};	
+            				\draw(1,2) node{\textbullet};
+            				\draw(2,1) node{\textbullet};
+            				\draw(0,0) -- (1,0) -- (1,2) -- (2,1) -- (3,2) -- (1,2);
+            			\end{tikzpicture} \\
+            			\textit{Graphe connexe.}
+            			\end{minipage}\hfill
+            			\begin{minipage}{0.5\textwidth}
+            			\centering
+            			\begin{tikzpicture}
+            				\draw(0,0) node{\textbullet};
+            				\draw(1,0) node{\textbullet};	
+            				\draw(3,2) node{\textbullet};	
+            				\draw(1,2) node{\textbullet};
+            				\draw(2,1) node{\textbullet};
+            				\draw(0,0) -- (1,0);
+            				\draw(2,1) -- (3,2) -- (1,2);
+            			\end{tikzpicture} \\
+            			\textit{Graphe non-connexe avec 2 composantes connexes.}
+            			\end{minipage}
 			
 		\subsubsection{Cycles}	
 			Soit $\Gamma = (V,E)$ et $v \in V$, un \textbf{cycle} est un chemin allant de $v$ à $v$. Il est \textbf{simple} si on ne passe pas plusieurs fois sur le même sommet (à part $v$).
@@ -279,7 +279,7 @@
 			Il est utile entre autres pour résoudre le problème du voyageur de commerce.
 	
 	\subsection{Isomorphisme}
-		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : V_1 \rightarrow V_2$ et une bijection $g : E_1 \rightarrow E_2$ telles que $\forall e \in E_1$, $e$ est incident à $v, w \in V_1$ si et seulement si $g(e)$ est incident à $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$.\\
+		2 graphes $\Gamma_1 = (V_1,E_1,\gamma_1)$ et $\Gamma_2 = (V_2,E_2,\gamma_2)$ sont \textbf{isomorphes} s'il existe une bijection $f : V_1 \rightarrow V_2$ et une bijection $g : E_1 \rightarrow E_2$ telles que $\forall e \in E_1$, $e$ est incident à $v, w \in V_1$ si et seulement si $g(e)$ est incident à $f(v), f(w) \in V_2$. On note cela : $\Gamma_1 \cong \Gamma_2$. \\ % fix'd
 		Autrement dit, les graphes ont le même nombre de sommets et sont connectés de la même façon. Autrement dit, si les deux graphes venaient à être dessinés, alors il n'y aurait qu'à déplacer les sommets de l'un pour obtenir la copie conforme de l'autre.\\
 		\begin{center}
 		\begin{minipage}{0.5\textwidth}
@@ -348,6 +348,7 @@
 		\end{center}
 			
 		Si un graphe est biparti, alors tout ses cycles simples sont de longueur paire.\\
+
 		Un graphe biparti avec un nombre impair de sommets n'est pas hamiltonien. \\
 		\begin{center}
 			\begin{tikzpicture}
@@ -364,7 +365,7 @@
 				\draw (1.5,0) -- (1.5,3);
 				\draw (0,1.5) -- (3,1.5);	
 			\end{tikzpicture} \\
-		\textit{Exemple de graphe biparti non-hamiltonien}
+		\textit{Exemple de graphe biparti non-hamiltonien.}
 		\end{center}
 		
 		\underline{Théorème :} Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
@@ -420,15 +421,16 @@
 			\end{center} 
 			
 	\underline{Théorème :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulérien $\Leftrightarrow$ chaque sommet est de degré pair.
+
 	\subsection{Ordre partiel}
-		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$. C'est-à-dire un ensemble de couple $(p_1,p_2) \in P \times P$ noté $p_1 \leq p_2$ tel que:
+		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$ (c'est-à-dire un ensemble de couples $(p_1,p_2) \in P \times P$) notée $p_1 \leq p_2$ telle que:
 		\begin{itemize}
-			\item Réflexivité : $p \leq p$
-			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$
-			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$
+			\item Réflexivité : $p \leq p$ ;
+			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$ ;
+			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$.
 		\end{itemize}
 
-		On note $(P,\leq)$ un ensemble partiellement ordonné.\\ 
+		On note $(P,\leq)$ un ensemble partiellement ordonné.\\
 		
 		Un ordre partiel $(P,\leq)$ peut se représenter à l'aide d'un graphe. Si l'on place les arêtes entre les différents sommets en respectant les 3 règles d'un ordre partiel et en enlevant les arêtes pouvant être obtenues par transitivité, alors on obtient un \textbf{diagramme de Hasse}. C'est à dire le graphe simple $\Gamma = (P,E)$ tel que :
 		\begin{itemize}
