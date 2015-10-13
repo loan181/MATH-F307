@@ -64,7 +64,7 @@
 		
 		\subsubsection{Cas particuliers d'arêtes}
 			On appelle \textbf{arêtes multiples} toutes les arêtes incidentes à 2 mêmes points.\\
-			Un \textbf{lacet} est une arête qui incidente à un seul point.
+			Un \textbf{lacet} est une arête incidente à un seul point.
 			\begin{center}
 			\begin{tikzpicture}
 				\draw (0,1) node[anchor=east]{$x$} node{\textbullet};
@@ -78,7 +78,7 @@
 				\draw (5,1.3) node[anchor=south]{$x$} node{\textbullet};
 				\draw[color=red] (5,0.8) ellipse (0.2 and 0.5) node{$e$} ;
 			\end{tikzpicture} \\
-			\textit{Graphe avec arête multiple et graphe avec lacet} \\
+			\textit{Graphe avec arête multiple et graphe avec lacet.} \\
 			\end{center}
 		Un graphe est dit \textbf{simple} s'il ne contient pas d'arête multiple ni de lacet.
 		
@@ -364,7 +364,7 @@
 				\draw (1.5,0) -- (1.5,3);
 				\draw (0,1.5) -- (3,1.5);	
 			\end{tikzpicture} \\
-		\textit{Exemple de graphe biparti non-hamiltonien}
+		\textit{Exemple de graphe biparti non-hamiltonien.}
 		\end{center}
 		
 		\underline{Théorème :} Soit $\Gamma$ un graphe simple avec $p \geq 3$ sommets et $\forall v \in V : deg(v) \geq \frac{1}{2}p$, alors $\Gamma$ est hamiltonien.
@@ -420,15 +420,16 @@
 			\end{center} 
 			
 	\underline{Théorème :}  Soit $\Gamma$ un graphe connexe. $\Gamma$ est un graphe eulérien $\Leftrightarrow$ chaque sommet est de degré pair.
+
 	\subsection{Ordre partiel}
-		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$. C'est-à-dire un ensemble de couple $(p_1,p_2) \in P \times P$ noté $p_1 \leq p_2$ tel que:
+		Soit $P$ un ensemble. Un \textbf{ordre partiel} sur $P$ est une relation sur $P$ (c'est-à-dire un ensemble de couples $(p_1,p_2) \in P \times P$) notée $p_1 \leq p_2$ telle que:
 		\begin{itemize}
-			\item Réflexivité : $p \leq p$
-			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$
-			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$
+			\item Réflexivité : $p \leq p$ ;
+			\item Anti-symétrie : $p \leq q$ et $q \leq p \Rightarrow p = q$ ;
+			\item Transitivité : $p \leq q$ et $q \leq r \Rightarrow p \leq r$.
 		\end{itemize}
 
-		On note $(P,\leq)$ un ensemble partiellement ordonné.\\ 
+		On note $(P,\leq)$ un ensemble partiellement ordonné.\\
 		
 		Un ordre partiel $(P,\leq)$ peut se représenter à l'aide d'un graphe. Si l'on place les arêtes entre les différents sommets en respectant les 3 règles d'un ordre partiel et en enlevant les arêtes pouvant être obtenues par transitivité, alors on obtient un \textbf{diagramme de Hasse}. C'est à dire le graphe simple $\Gamma = (P,E)$ tel que :
 		\begin{itemize}
