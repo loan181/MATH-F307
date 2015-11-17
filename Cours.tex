@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[cm]{fullpage} % Rétraici les marges
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{graphicx}  % \includegraphics[scale=0.6]{image.png}\\
 \usepackage{amsfonts} % Pour les ensembles IR, IN ...
 \usepackage{tikz}
@@ -217,7 +218,7 @@
             			\end{minipage}
 			
 		\subsubsection{Cycles}	
-			Soit $\Gamma = (V,E)$ et $v \in V$, un \textbf{cycle} est un chemin allant de $v$ à $v$. Il est \textbf{simple} si on ne passe pas plusieurs fois sur le même sommet (à part $v$).
+			Soit $\Gamma = (V,E)$ et $v \in V$, un \textbf{cycle} est un chemin allant de $v$ à $v$. Il est \textbf{simple} si on ne passe pas plusieurs fois sur le même sommet (à part $v$).\\
 			\begin{minipage}{0.5\textwidth}
 						\centering
 						\begin{tikzpicture}
@@ -618,7 +619,7 @@
 			$z = (\pm 1) p_1^{e_1}, p_2^{e_2}, …, p_n^{e_n}$\\
 			Cette expression est unique à l'ordre dans lequel on écrit $p_i^{e_i}$ près.
 			
-
+  
 	\subsection{Groupes, anneaux et entiers modulo $h$}
 		\subsubsection{Définition}
 			Un groupe $(G,*)$ est un ensemble non-vide $G$ muni d'une loi de composition 
@@ -648,6 +649,408 @@
 					\end{pmatrix} 
 					| a, b, c, d \in \mathbb R  a \cdot d – b \cdot c \neq 0\}, \cdot) \rightarrow$ groupe
 			\end{itemize}
+			
+			
+			\underline{Définition :} Soit $(G, *)$ un graphe. Un sous ensemble $H$ de $G$ est un sous-graphe de $G$ si $(H,*)$ est un graphe. On note $(H,*) \leq (G,*)$ ou bien $H \leq G$\\
+			
+			\underline{Proposition :} $(G, *)$ un groupe et $H \in G$ \\
+$H$ est un sous-groupe de $G$ si et seulement si :
+			\begin{enumerate}
+				\item $e \in H$
+				\item $\forall g,h \in H : g * h^{-1} \in H$
+			\end{enumerate} 
+			Exemple : Dans $(\mathbb Z, +), 2 \mathbb Z = \{ ..., -2, 0, 2, ... \} = \{2z | z \in \mathbb Z \}$\\
+			
+			\underline{Proposition :} Soit $S \in \mathbb Z$  un sous-ensemble non-vide de $\mathbb Z$  tel que $(S, +) \leq (\mathbb Z , +) \Rightarrow \exists k \in\mathbb Z  : S = k\mathbb Z$\\
+			
+			Exemple :  Interprétation du $pgcd$: \\
+$k, l \in\mathbb Z$  on définit $k \mathbb Z  + l \mathbb Z  =\{ k \mathbb Z 1 + l \mathbb Z 2 | \mathbb Z 1, \mathbb Z 2 \in\mathbb Z \}$
+si $l \neq : k \mathbb Z  + l \mathbb Z  = pgcd(k, l) \mathbb Z$
 
+		\subsection{Groupes quotients}
+			Dans cette section, on considère $(G, +)$ un groupe commutatif.  Dans ce cas, l'inverse de $g \in G$ se note $-g$ on l'appelle aussi l'opposé de $g$.\\
+			
+			\underline{Définition :} Soit $(H, +) \leq (G +)$. Une \textbf{classe latérale} de $H$ est un ensemble :
+$g+H = \{ g+h | h \in H \}$ pour un $g \in G$ fixé\\
+			\underline{Proposition : } $(H, +) \leq (G, +), g, g'  \in G : g+H = g' + H <=> \forall h \in H, \exists!\footnote{Il existe un unique}\  h' \in H : g + h = g' + h'.$\\
+			
+			\underline{Définition :} On notre $G/H$ l'ensemble des classes latérales de $H$, pour $(H, +) \leq (G, +)$ \\
+$G/H = \{ g+h | g \in G \} \qquad g + h$ seras noté $\overline{g}$ \\
+			Exemple : $(\mathbb Z , +)$ et $7 \in\mathbb Z  : 
+\mathbb Z  / 7\mathbb Z  = {0 + 7\mathbb Z , 1+7\mathbb Z , 2+7\mathbb Z , …, 6+7\mathbb Z }
+= \{ \overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}, \overline{6} \}$\\
+			
+			Division euclidienne : $\forall \mathbb Z  \in\mathbb Z  : \exists r tel quel : \mathbb Z  = 7q + r => \mathbb Z  \in \overline{z} = r + 7\mathbb Z$\\
+			 
+			\underline{Proposition :} $ (\mathbb Z , +)$ et $k \in\mathbb Z$  alors $\mathbb Z  / k \mathbb Z$  est une partition de $\mathbb Z $
+			
+			\underline{Théorème :} Soit $(G, +)$ un groupe (commutatif) et $H \leq G$
+Alors $G/H$ est muni d'une loi $\mp$ tel que $(G/H, \mp)$ est un groupe commutatif.  Précisément, on définit :
+$\forall g, g' \in G : \overline{g} \mp \overline{g'} := \overline{(g+g')}$\\
+ou bien $(g+H) \mp (g'+H) := (g+g') + H$
+			\underline{Démonstration :} Montrons que I est bien défini:\\
+			$g, \tilde{g}, g', \tilde{g'} \in G : \overline{g} = \overline{\tilde{g}}$ et $\overline{g'} = \overline{\tilde{g'}}$\\
+			Montrons que $\overline{g} \overline{+} \overline{g'} = \overline{\tilde{g}} \overline{+} \overline{\tilde{g'}}$\\
+			$\overline{g} = \overline{\tilde{g}} \Rightarrow g + (-\tilde{g}) = h \in H, \overline{g'} = \overline{\tilde{g'}} \Rightarrow g' + (\tilde{g'}) = h' \in H$
+			
+			$\overline{g} \overline{+} \overline{g'} = \overline{g+g'} = ((\tilde{g}+h) + \overline{\tilde{g'} + h')} = (\tilde{g} + \tilde{g'} + \overline{h + h'}$
+			et (c'est égal à) $\overline{\tilde{g}} \overline{+} \overline{\tilde{g'}} = \overline{\tilde{g}+\tilde{g'}}$
+			
+			\begin{itemize}
+			 \item $\overline{+}$ est associatif, commutatif : on les récupère des propriété de +
+			 \item $g \in G : -\overline{g} = -(g+H) := (-g) + H = -\overline{g}$
+			 \item $e \in G$ alors $\overline{e} \in G/$H est le neutre pour I
+			\end{itemize}
+
+			\underline{Définition (Exemple principal de groupe quotient) :} Pour $n \in N_0, n Z \leq Z$, on définit le groupe des entiers modulo $n$ comme le groupe quotient $(Z/nZ, I) $où$ \overline{a} \overline{+} \overline{b} = \overline{a+b} \forall a, b \in Z$
+			
+			\underline{Exemple :} $Z/8Z = {\overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{5}, \overline{6}, \overline{7}}, \overline{2} \mp \overline{5} = \overline{7}, \overline{6} \overline{+} \overline{7} = \overline{13} = \overline{5}$\\
+				$\overline{0}$ est le neutre: $\overline{4} + \overline{0} = \overline{4+0} = \overline{4}$\\
+				L'opposé: $- \overline 3 = \overline{-3} = \overline{5}$
+		
+		\subsection{Isomorphisme de groupes}
+			\subsubsection{Définition}
+				Soient $(G, *)$ et $(G', *')$ deux groupes. Un morphisme de groupe est une application f: G -> G' tel que $\forall g, h \in G: f(g*h) = f(g) *' f(h)$\\
+				Exemple : 
+				\begin{itemize}
+					\item $(R, +)$ et $(R_0 +, .)$\\
+					Exponentiel: $R \rightarrow R_0^+ : x \mapsto e^x$ morphisme car $\forall x, y \in R : e^{x+y} = e^x \cdot e^y$
+					 \item Logarithme: $R_0^+ \rightarrow R$\\
+					Morphisme: $log(x, y) = log(x) + log(y)$
+				 	\item $Z, p: Z \rightarrow Z/kZ : z \mapsto \overline{z}$ morphisme surjectif mais pas injectif.
+					 \item $(Z/8Z, +)$ et $(R_4, .)$ racine 4ème de l'unité dans C (complexe)\\
+					$f: Z/8Z \rightarrow R_4 : \overline{l} \mapsto e^((2\pi i 2l )/8)$ morphisqme surjectif mais pas injectif
+					 \item $(Gl_2(R), \cdot ) et (R_0, \cdot )$ \\
+					dét : $G\overline{l}2(R) \rightarrow R_0 : 
+						\begin{pmatrix}
+  							a & b \\
+							c & d 
+						\end{pmatrix}
+						\mapsto ad - bc$ est un morphisme de groupe.
+				\end{itemize}
+	
+			\underline{Définition :} Un morphisme de groupe $f: G \rightarrow G'$ est dit:
+			\begin{itemize}
+				\item \textbf{injectif} : si $\forall g1, g2 \in G: f(g1) = f(g2) \Rightarrow g1 = g2$
+				\item \textbf{surjectif} : si $\forall g' \in G': \exists g \in G$ tel que $f(g) = g'$\\
+			\end{itemize}
+			
+			\underline{Définition :} Soient $(G, *)$ et $(G', *')$ 2 groupe et $f:G \rightarrow G'$ un morphisme de groupe:
+			\begin{itemize}
+				\item L'image de f est l'ensemble: $Im(f) = \{ f(g) | g \in G\} \subseteq G$
+				\item Le noyau de $f$ est l'ensemble : $Ker(f) = \{ g \in G | f(g) = e'  \} \subseteq G$
+			\end{itemize}
+			\underline{Propriété :} 
+			\begin{itemize}
+				\item $Ker(f)$ est un sous-groupe de G
+				\item $Im(f)$ est un sous-graoupe de G'.
+			\end{itemize}
+			Exemple (en reprenant ceux plus haut): 
+			\begin{itemize}
+				\item[3] $p: Z -> Z/kZ$//
+					$l-> \overline{l}$
+					$Ker(p) = kZ \leq K$
+				\item[4] $Ker(f) = \{\overline{0}, \overline{4}\} \leq Z/8Z$
+				\item[5] $Ker(det) = \{
+				\begin{pmatrix}
+  					a & b \\
+					c & d 
+				\end{pmatrix}
+				 a, b, c, d \in \mathbb R$ tel que $det(
+				\begin{pmatrix}
+  					a & b \\
+					c & d 
+				\end{pmatrix}) = 1\} S\overline{l}2(\mathbb R)$
+			\end{itemize}
+			\underline{Propriété :} Soient $(G, *)$ et $(G', *')$ deux groupes et $f: G \rightarrow G'$ un morphisme de groupe. Alors:
+		 	\begin{enumerate}
+				\item $f$ est injectif $\Leftrightarrow Ker(f) = \{e\}$
+				\item $f$ est surjectif $\Leftrightarrow Im(f) = G'$
+			\end{enumerate}
+			\underline{Démonstration :}
+			\begin{enumerate}
+				\item $\left[ \Rightarrow \right]$
+				\begin{itemize}
+					\item  Montrons que $e \in Ker(f)$: $f(e) = f(e*e) = f(e) *' f(e)$\\
+					$\Rightarrow f(e) = f(e) *' f(e) \Rightarrow f(e) = e'$\\
+					Or dans un groupe $(F', *')$ si $x \in G': x *' x = x \Rightarrow x = e'$\\
+					$\rightarrow x *' x = x \Leftrightarrow x *' x *' x^-1 = x * x^-1 = x *' e' = e' \Leftrightarrow x = e'$
+					\item $\forall g \in Ker(f): f(g) = e' = f(e) \Rightarrow g = e$
+					$\Rightarrow Ker(f) = {e}$
+				\end{itemize}
+					\item $\left[ \Leftarrow \right]$ Exercice
+			\end{enumerate}
+			
+				Montrons que f est injectif
+				$g1, g2 \in G: f(g1) = f(g2)$
+		$\Leftrightarrow f(g1) *' (f(g2))^-1 = f(g2) *' (f(g2))^1 = e'$ \\
+		Or si $x \in G: (f(x))^-1 = f(x^-1)$ \\
+			$f(x^-1) *' = f(x^-1 * x) = f(e) = e'$ \\
+			$\Rightarrow f(x^-1) = (f(x))^-1$
+			
+			$e' = f(g1) *' (f(g2))^-1$
+			$= f(g1) * f(g2^-1)$
+			$= f(g1 * g2^-1)$
+			$\Rightarrow g1 * g2^-1 \in Ker(f) = par hypothèse {e} \in g1 * g2^-1 = e \Rightarrow g1 = g2$\\
+			
+			\underline{Définition :} Soient $(G, *)$ et $(G', *')$ 2 groupes
+				\begin{itemize}
+		 			\item Un \textbf{isomorphisme} de groupe est un morphisme bijectif: $f: G \rightarrow G'$
+		 			\item $(G, *)$ et $(G', *')$ sont dits isomorphes s'il existe un isomorphisme de groupe $f: G \rightarrow G'$\\
+		 		On note: $(G, *) \tilde{=} (G', *')$
+				\end{itemize}
+			Exemple: 
+			\begin{itemize}
+			 	\item Exponentiel $R \rightarrow R_0^+$ est un isomorphisme entre $(R, +)$ et $(R_0^+, .)$
+			 	\item $(\mathbb Z/k\mathbb Z, \overline{+}) \tilde{=} (\mathbb R_k, \cdot)$
+			 	\item $\mathbb Z/2\mathbb Z \times \mathbb Z/2\mathbb Z \tilde{\neq} \mathbb Z/4\mathbb Z$\\
+				$\mathbb Z/2\mathbb Z \times \mathbb Z/2\mathbb Z = {(\overline{0}, \overline{0}), (\overline{1}, \overline{0}), (\overline{0}, \overline{1}), (\overline{1}, \overline{1})}$ et $\forall g \in \mathbb Z/2\mathbb Z \times Z/2\mathbb Z : g + g = (\overline{0}, \overline{0})$
+				[Exemple: 
+				$\mathbb Z/4\mathbb Z: \overline{1} = 1 + 4\mathbb Z$ et $\overline{1} \overline{+} \overline{1} = \overline{2} \neq \overline{0}$
+				$\Rightarrow$ les groupes ne sont pas isomorphes.
+			\end{itemize}
+		
+		\subsection{Les anneaux}
+			\subsubsection{Définition}
+				Un anneau $(A, +, .)$ est un ensemble non vide A et de 2 opérations $+: A x A \rightarrow A et .: A x A \rightarrow A$\\
+				Tel que:
+				\begin{enumerate}
+					 \item $(A, +)$ est un groupe commutatif
+					 \item . est associatif: $a(bc) = (ab) c \forall a, b, c \in A$
+					 \item La multiplication . est distributive par rapport à l'addition +\\
+						$\forall a, b, c \in A$\\
+						$(a+b)c = ac + bc$\\
+						$a(b+c) = ab + ac$
+				\end{enumerate}
+	
+			\underline{Définition :}
+				\begin{itemize}
+					 \item On dit que $(A, +, .)$ est un anneau commutitif si . est commutatif.
+					 \item On dit que $(A, +, .)$ est un anneau unital si $\exists 1 \in A : 1.a = a = a.1 \forall a \in A$
+				\end{itemize}
+				
+			Exemple:
+				\begin{itemize}
+					 \item $0.a = 0 = a.0$ désigne le neutre pour + \\
+					$0.a = (0+0).a$
+					$= 0.a + 0.a)$ (distributivité)
+					$\Rightarrow 0.a = 0 car (A, +)$ est un groupe.
+					 \item $(A, +, .)$ unital $(\exists 1 \in A)$\\
+					Montrons que $(-1).a = -a   \forall a \in A$
+				\end{itemize}
+				Exemple
+				\begin{enumerate}
+					\item $(H_2 (R) = \{ 
+					\begin{pmatrix}
+  						a & b \\
+						c & d 
+					\end{pmatrix} | a, b, c, d \in \mathbb R \}, +, \cdot )$ est un anneau unital\\
+				 	Le neutre pour $\cdot: 1 := Id = \begin{pmatrix}
+  					1 & 0 \\
+					0 & 1 
+				\end{pmatrix}$
+					 \item $(Hom(R^2, R^2) = \{ f: R^2 \rightarrow R^2 | f $linéaire$ \}, +, \circ))$ est un anneau unital\\
+					Le neutre pour $\circ 1 := Id$
+					\end{enumerate}
+	
+			 \subsubsection{Propriétés}
+				Soit $k \in mathbb Z_0, k \neq 1$ alors $(\mathbb Z /k \mathbb Z, I, \overline{\cdot})$ est un anneau commutatif où $\overline{\cdot}.$ est définie par:\\
+					$\overline{l} - \overline{l'} = \overline{l.l'}  \forall l, l' \in \mathbb Z$\\
+					
+				\underline{Démonstration}
+					$l, \tilde{l}, l', \tilde{l'} \in Z$ tel que $\overline{l} = \overline{\tilde{l}} (= l + kZ = \tilde{l} + kZ)$ et $\overline{l'} = \overline{\tilde{l'}} \Rightarrow l = \tilde{l} + k z_1$ et $l' = \tilde{l'} + k z_2$ pour $z_1, z_2 \in \mathbb Z$\\
+					$\overline{\tilde{l}}\cdot\overline{\tilde{l'}} = \overline{\tilde{l}.\tilde{l'}} = \overline{(l-kz_1) \cdot (l'-kz_2)} = \overline{l l' - k z_1 l' - k z_2 l + k k z_1 z_2} = \overline{ll'} = \overline{l} - \overline{l'}$
+					On a montré que $\overline{\cdot}$ est bien définie\\
+			
+				Les autres propriétés de I et $\overline{\cdot}$ découlent des propriété de + et $\cdot$ dans $\mathbb Z$.
+					\underline{Exemple :}
+			Dans $(\mathbb Z/10\mathbb Z, I \overline{\cdot}): \overline{1} \overline{\cdot} \overline{2} = \overline{1.2} = \overline{2}, \overline{1} est le neutre pour \overline{\cdot}$\\
+			$\overline{2} \overline{\cdot} \overline{5} = \overline{10} = \overline{0}$
+			
+		\subsection{Intreprétation des pgcd et nombre premiers, premiers entre eux}
+			\subsubsection{Définition}
+				Soit $(A, +, .)$ un anneau unital.\\
+				\begin{itemize}
+					 \item $a \in A$ est inversible si $\exists b \in A$ tel que $a \cdot b = 1 = b \cdot a$
+					 \item $0 \neq a \in A$ est un diviseur de 0 si $\exists 0 \neq b \in A: a \cdot b = 0$
+				\end{itemize}
+				Exemple:
+					Soient $0 < a \leq b < k \in N_0 : a.b = k$\\
+					$\Rightarrow \overline{a}$ et $\overline{b}$ sont des diviseurs de 0 dans Z/kZ
+					
+			\subsubsection{Propriétés}
+				Si $a \in A$ est un diviseur de 0 $\Rightarrow$ a n'est pas inversible.\\
+				Exemple : Dans $\mathbb Z /4 \mathbb Z : \overline{2} \cdot \overline{2} = \overline{0}$ dont $\overline{2}$ n'est pas inversible. \\ 
+				\underline{Démonstration :}
+					$0 \neq a, \exists 0 \neq 6 \in A$ tel que $a.b = 0$\\
+					Supposons a inversible $\Rightarrow \exists c \in A$ tel que $c.a = 1 = a.c$ \\
+					$\Rightarrow b = (c \cdot a) \cdot b = c \cdot (a \cdot b) = c \cdot 0 = 0$\\
+					Contradition !\\
+	
+				Soit $k \in N_0, k > 1$ et soit $l \in Z$, alors $\overline{l}$ est inversible dans $(Z/kZ, \overline{+}, \overline{.}) \Leftrightarrow k et l$ sont premiers entre eux.
+			
+			\subsubsection{Proposition}
+				Soit k $\in \mathbb{N}_0,$ $k > 1$ et soit $l \in \mathbb{Z}$\\
+				Alors $\overline{l} \in \mathbb{Z}/k\mathbb{Z}$ est inversible $\Leftrightarrow$ l et k soit premiers entre eux.\\
+				\underline{Démonstration :}
+				\begin{itemize}
+					 \item l et k premiers entre eux $\Leftrightarrow pgcd(k,l) = 1 \Leftrightarrow \exists s, t \in \mathbb{Z}$ tel que $sk+tl = 1$
+			 		\item $\Longleftarrow$ Montrons que l et k premiers entre eux $\Rightarrow \overline{l}$ inversible.\\
+					$\overline{t} \overline{l} = \overline{tl} = \overline{1-sk} \in \mathbb{Z}/k\mathbb{Z}$\\
+					$= \overline{1}$\\
+					Donc $\overline{t}$ est l'inverse de $\overline{l}$ dans $\mathbb{Z}/k\mathbb{Z}$
+					\item $\Longrightarrow$ Montrons que $\overline{l}$ inversible $\Rightarrow$ k et l premiers entre eux.\\
+			$\overline{l}$ inversible $\Rightarrow \exists t \in \mathbb{Z}$ tel que $\overline{t} \overline{l} = \overline{1}$\\
+					$\Rightarrow \exists t \in \mathbb{Z}$ tel que $\overline{tl} = \overline{1}$\\
+					$\Rightarrow \exists t \in \mathbb{Z}$ et $s \in \mathbb{Z}$ $tl - 1 = sk$\\
+					$\Rightarrow \exists t, s \in \mathbb{Z}: 1 = tl +(-s)k$\\
+					$\Rightarrow pgcd(k,l) = 1$
+				\end{itemize}
+				Remarque : Quand le pgcd(k,l)=n, on a vu un algorithme qui permet de trouver $s$ et $t \in \mathbb{Z}$ tel que $sk+tl=n$.  Si $n=1$, on sait trouver l'inverse de $\overline{l}$ dans $\mathbb{Z}/k\mathbb{Z}$\\
+				Exemple : Dans $\mathbb{Z}/5\mathbb{Z}$: $\overline{2}$ est inversible: $\overline{2} \cdot \overline{3} = \overline{6} = \overline{1}$
+				
+			\subsubsection{Définition (champ)}
+				$(K,+, \cdot)$ est un \textbf{champ} si $(K,+, \cdot)$ est un anneau commutatif unital tel que $\forall 0 \neq k \in K: \exists$ un inverse $k^{-1} \cdot k=1$\\
+				Exemple:
+				\begin{itemize}
+			 		\item $\mathbb{Z}/2\mathbb{Z}$ est un champ
+			 		\item $\mathbb{Z}/3\mathbb{Z}$ est un champ
+			 		\item $\mathbb{Z}/4\mathbb{Z}$ pas un champ (car $\overline{3}$ n'a pas de $k^{-1}$ dans l'ensemble)
+				\end{itemize}
+			
+			\subsubsection{Proposition}
+			Soit $k \in \mathbb{N}_0, k > 1$.  Alors $\mathbb{Z}/k\mathbb{Z}$ est un champ $\Leftrightarrow$ k est un nombre premier.\\
+			Remarque :
+			\begin{itemize}
+			 	\item la démonstration est un corollaire de la proposition précédente.
+			 	\item $\forall p \in \mathbb{Z}$ premier, on a un champ à p éléments: $\mathbb{Z}/p\mathbb{Z}$
+			\end{itemize}
+			
+		\subsection{Relation de congruence}
+			\subsubsection{Définition}
+				Soient a, b, k $\in \mathbb{Z}, k \neq 0, 1, -1$, on dit que a est congru à b modulo k et on note\\
+				$a\equiv b$(mod k)\\
+				Si $a-b \in k\mathbb{Z}$ ou de manière équivalente: $\overline{a} = \overline{b}$ dans $\mathbb{Z}/k\mathbb{Z}$
+			
+			\subsubsection{Propriétés}
+				\begin{enumerate}
+			 	% 1
+			 		\item La congruence modulo k est une relation d'équivalence:
+					\begin{itemize}
+						 \item réflexivité: $\forall a \in \mathbb{Z}: a \equiv a$(mod k)
+						 \item symétrie: $\forall a, b \in \mathbb{Z}: a \equiv b$(mod k) $\Leftrightarrow b \equiv a$(mod k).
+						 \item transitivité: $\forall a, b, c \in \mathbb{Z}:$\\
+							$a \equiv b$(mod k)\\
+							$b \equiv c$(mod k)\\
+							$\Rightarrow a \equiv c$(mod k).
+					\end{itemize}
+			 		% 2
+			 		\item $\forall a_1, b_1, a_2, b_2 \in \mathbb{Z}, k \neq 0, 1, -1$\\
+					Si $a_1 \equiv a_2$(mod k) et $b_1 \equiv b_2$(mod k).\\
+					Alors
+					\begin{itemize}
+						\item $a_1 + b_2 \equiv a_2 + b_2$(mod k)
+						\item $a_1 b_1 \equiv a_2 b_2$(mod k)
+					\end{itemize}
+					En conséquence: $\forall c \in \mathbb{Z}: a_1 c \equiv a_2 c$(mod k)
+				\end{enumerate}
+				Exemple : $6 \equiv 2$(mod 4), $7 \equiv 0$(mod 7)
+	
+		\subsection{Cryptologie le système clés RSA}
+			\underline{Lemme :} 
+			$\forall n \in \mathbb{N}: (n+1)^p \equiv n^p + 1$(mod p) si p est un nombre premier
+			
+			\subsubsection{Petit théorème de Fermat}
+				$p \in \mathbb{N}$ un nombre premier\\
+				$a  in \mathbb{N}$ tel que $p \nmid a$ (p ne divise pas a)\\
+				Alors $a^{p-1} \equiv 1$(mod p). \\
+			
+				\underline{Démonstration :}
+				Montrons par récurrence que $\forall a \in \mathbb{N}: aP \equiv a$(mod p).\\
+				$a = 1: 1^p \equiv 1$(mod p)\\
+				\begin{itemize}
+				 	\item Supposons que ce soit vrai pour $a \in \mathbb{N}$ (c'est à dire  $a^p \equiv a$(mod p)) et montrons le pour $(a+1)$ (c'est à 	      dire montrer que $(a+1)^p \equiv a+1$(mod p).\\
+					 \underline{Par le lemme:} $(a+1)^p \equiv a^p + 1$(mod p)\\
+				 	\underline{Par l'hypothèse de récurence:} $(a+1)^p \equiv a + 1$(mod p)
+				\end{itemize}
+		
+				On va maintenant utiliser $p \nmid a$.  On a: $\forall a \in \mathbb{N}: a^p \equiv a$(mod p).
+				$\Rightarrow$ Dans $\mathbb{Z}/p\mathbb{Z}: \overline{a^p} = \overline{a}$ et comme $p \nmid a: \exists \overline{b} \in \mathbb{Z}/p\mathbb{Z}$ un inverse de $\overline{a}$.\\
+				$\Rightarrow \overline{b} \overline{a^p} = \overline{b}.\overline{a}$\\ 
+				$\Rightarrow \overline{b} \overline{a}^p = \overline{1}$\\
+				$\Rightarrow \overline{a}^{p-1} = \overline{1} \Leftrightarrow a^{p-1} \equiv 1$(mod p)\\
+				
+				\underline{Démonstration}
+					$(n+1)^p = \Sigma_{i=0}^p \begin{pmatrix}p\\i\end{pmatrix} n^i = n^p + \Sigma_{i>0}^{p-1} \begin{pmatrix}p\\i\end{pmatrix} n^i + 1$ \\
+					$\Rightarrow (p+1)^p \equiv n^p + 1 + \Sigma_{i=1}^{p-1} \begin{pmatrix}p\\i\end{pmatrix}$(mod p).\\
+					\underline{Rappel:} $\begin{pmatrix}p\\i\end{pmatrix} = \frac{p!}{i! (p-1)!}$\\
+			
+					Par récurence sur i: on va montrer que $p | \begin{pmatrix}p\\i\end{pmatrix}$ pour $i=1,...,(p-1)$
+					\begin{itemize}
+		 				\item \underline{$i=1$:} $\begin{pmatrix}p\\i\end{pmatrix} = p$ et $p |p$
+						\item Supposons que $p|\begin{pmatrix}p\\i\end{pmatrix}$ pour $1 \leq i < p-1$ et montrons que $p |\begin{pmatrix}p\\i+1\end{pmatrix}$\\
+			 			$\begin{pmatrix}p\\i+1\end{pmatrix} = \frac{p!}{(i+1)! (p-i-1)!} = \begin{pmatrix}p\\i\end{pmatrix}\frac{(p-1)}{(i+1)}$
+			 			$p|\begin{pmatrix}p\\i\end{pmatrix} \Rightarrow \begin{pmatrix}p\\i\end{pmatrix} = p.b$ pour un $b \in \mathbb{Z} \Rightarrow \begin{pmatrix}p\\i\end{pmatrix} = \frac{p.b.(p-1)}{(i+1)} \in \mathbb{N}$
+					\end{itemize}
+			
+					p premier et $1 < i+1 \leq p-1$\\
+					$\Rightarrow (i+1) | b.(p-i)$ (car $(i+1) \nmid p)$\\
+					$\Rightarrow \begin{pmatrix}p\\i+1\end{pmatrix} = p.\frac{b(p-1)}{(i+1) (\in \mathbb{Z}} \Rightarrow p | \begin{pmatrix}p\\i+1\end{pmatrix}$ \\
+					$\Rightarrow \begin{pmatrix}p\\i\end{pmatrix} \equiv O$(mod p) pour $i=1,...,p-1$\\
+					$\Rightarrow (n+1)^p \equiv n^p + 1$(mod p)
+				
+				\subsubsection{Fonctionnement des clés de chiffrement}
+					2 personnes: A et B veulent communiquer de manière sûre etnre elles.
+					\begin{itemize}
+			 			\item A choisit 2 nombres premiers p et q (ont 100 chiffres) $\in \mathbb{N}$ appelé clé privée.
+						A calcule:
+						\begin{itemize}
+							 \item $N = p.q$
+							 \item $\phi(N) = (p-1)(q-1)$
+							 \item $e \in \mathbb{Z}$ tel que $pgcd(e, \phi(N)) = 1$ (appelé l'exposant de chiffrement) (e et $\phi(N)$ sont premiers entre eux).
+							 \item[$\Rightarrow$] $\exists 0 < s < \phi(N): es \equiv 1$(mod $\phi(N)$). ($\overline{s}$ est l'invserse de $\overline{l}$ dans $\mathbb{Z}/\phi(N)\mathbb{Z}$).
+						\end{itemize}
+						(En fait $\exists s, t \in \mathbb{Z}$ tel que $t \phi(N) + se = 1$)\\
+						s est gardé secret.\\
+						A publie les nombres (N, e) appelé la clé publique.
+					 \item B souhaite envoyer un message à A.  Dans le système RSA: Message: $0 < M < N$ et $M \in \mathbb{Z}$\\
+					\underline{Exemple:} $\_ \rightarrow 01$, $A \rightarrow 02, B \rightarrow 03, ...$\\
+					BONJOUR $\rightarrow 03151410152118$ \\
+					B utilise la clé publique et envoie le message chiffré.\\
+					$\tilde{M} \equiv M^e$(mod N).
+			 
+					 \item Pour déchiffrer le message: A utilise s et obtient:\\
+					$\tilde{M}^s \equiv M^{es}$(mod N)
+					$\equiv M$(mod N) (par le théorème suivant).
+				
+					\subsubsection{Théorème}
+						$\forall 0 < M < N = p.q \in \mathbb{N}, p, q$ premier.\\
+						Soit $u \equiv 1$(mod $\phi(N)$\\
+						Alors $M^u \equiv M$(mod N)\\
+						\underline{Démonstration : } $0 < M < N \Rightarrow p \nmid M$ ou $q \nmid M$
+						\begin{itemize}
+				 \item \underline{Cas 1} $p \nmid M et q \nmid M$\\
+					$u = 1 + t \phi(N) = 1 + t (p-1)(p-1)$\\
+					$M^u = M^{1+t(p-1)(q-1)}= M M^{t(p-1)(q-1)}$\\
+					$p \nmid M,$ Petit théorème de Fermat: $(M^{t(q-1)})^{p-1} \equiv 1$(mod p)\\
+					$q \nmid M,$ Petit théorème de Fermat: $(M^{t(p-1)})^{q-1} \equiv 1$(mod q)\\
+					$\rightarrow M^u \equiv M$(mod p) \\
+					$\rightarrow M^u \equiv M$(mod q) \\
+					$\Rightarrow p | M^u - M$ \\
+					$\Rightarrow q | M^u - M$ \\
+					$\Rightarrow pq | M^u - M \Rightarrow M^u \equiv M$(mod N)
+				 \item \underline{Cas 2} $p | M$ et $q \nmid M$\\
+					$u = 1+t (p-1)(q-1)$\\
+					$q \nmid M \Rightarrow$ (Petit théorème de Fermat) $(M^{t(p-1)})^{q-1} \equiv 1$(mod q) \\
+					$\Rightarrow M^{t(p-1)(q-1)} = 1 + lq$ pour $l \in \mathbb{Z}$ \\
+					$M^u = M(1+lq)=M + lMq = M+lc.p.q \Rightarrow M^u \equiv M$(mod N)\\
+					$(p|M \Rightarrow M = p.c$ pour $c \in \mathbb{Z}$
+				 \item \underline{Cas 3} $p \nmid M$ et $q | M$ ($\rightarrow Exercice$)
+				\end{itemize}	
+			\end{itemize}
+
+\section{Combinatoire énumérative}
+	\subsection{Comptage élémentaire}
+		% A toi de jouer champion ;)
 		
 \end{document}
